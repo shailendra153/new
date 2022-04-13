@@ -5,13 +5,23 @@ import { AdminComponent } from './admin.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { SigninComponent } from './signin/signin.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AddCategoryComponent } from './add-category/add-category.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { ViewCategoryComponent } from './view-category/view-category.component';
+import { ViewProductComponent } from './view-product/view-product.component';
 
 
 @NgModule({
   declarations: [
     NavbarComponent,
     AdminComponent,
-    SigninComponent
+    SigninComponent,
+    DashboardComponent,
+    AddCategoryComponent,
+    AddProductComponent,
+    ViewCategoryComponent,
+    ViewProductComponent
   ],
   imports: [
     CommonModule,

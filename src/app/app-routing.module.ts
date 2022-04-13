@@ -12,7 +12,8 @@ import { ProductsComponent } from './customer/products/products.component';
 import { SearchbarComponent } from './customer/searchbar/searchbar.component';
 import { SigninComponent } from './customer/signin/signin.component';
 import { SignupComponent } from './customer/signup/signup.component';
-import {SigninComponent as adminSignin} from './admin/signin/signin.component'
+import { SigninComponent as adminSignin } from './admin/signin/signin.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -35,9 +36,8 @@ const routes: Routes = [
     ]
   },
   { path: "admin", component: AdminComponent, children:[
-    {
-      path: "sign-in", component:adminSignin
-    }
+    { path:"", component: DashboardComponent},
+    { path: "sign-in", component:adminSignin }
   ]}
 ];
 
