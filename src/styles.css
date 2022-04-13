@@ -1,8 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+  --primary : #0081DE;
+  --secondary : #ECCD81;
+  --dark : #1c1c1c;
+  --light : #ffffff;
+}
+
 *{
   font-family: 'Poppins', sans-serif;
 }
+
+
 
 ul li a{
   font-size:14px;
