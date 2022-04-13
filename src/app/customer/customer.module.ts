@@ -13,6 +13,12 @@ import { FavoriteComponent } from './favorite/favorite.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { CustomerComponent } from './customer.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule} from '@angular/forms';
+import { AuthenticateService } from './Authenticate.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenIntercepterService } from '../token-intercepter.service';
+// import { AuthenticateService } from './Authenticate.service';
+
 
 
 
@@ -33,7 +39,14 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
-  ]
+    RouterModule,
+    FormsModule,
+
+  ],
+  providers: [AuthenticateService,{
+    provide: HTTP_INTERCEPTORS,
+    useClass:TokenIntercepterService,
+    multi:true,
+  }],
 })
 export class CustomerModule { }
