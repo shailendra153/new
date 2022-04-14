@@ -3,7 +3,7 @@
 
 :root {
   --primary : #0081DE;
-  --secondary : rgba(236, 206, 129, 0.737);  /*34%*/ 
+  --secondary : rgba(236, 206, 129, 0.737); 
   --dark : #1c1c1c;
   --light : #ffffff;
 }
@@ -11,6 +11,16 @@
 *{
   font-family: 'Poppins', sans-serif;
 }
+
+body {
+
+  background: radial-gradient (ellipse at bottom, 3 #022227 0%, #000000 100%);
+  position: relative;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  overflow-x: hidden;
+  }
 
 
 

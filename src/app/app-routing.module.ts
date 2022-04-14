@@ -18,10 +18,7 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 const routes: Routes = [
   {
     path: "", component: CustomerComponent, children: [
-      {
-        path: "", component: HomeComponent,
-
-      },
+      {path: "", component: HomeComponent,},
       { path: "home", component: HomeComponent },
       { path: "products", component: ProductsComponent},
       { path: "about-us", component: AboutComponent },

@@ -1,0 +1,80 @@
+@keyframes shine {
+  from {
+    background-position: center 0;
+  }
+
+  to {
+    background-position: center 800%;
+  }
+}
+.text h1 {
+  margin: 60;
+  font-size: 108px;
+  font-weight: 900;
+  letter-spacing: 5px;
+  color: white;
+  background: url("../../../assets/images/rings_banner.png");
+  background-size: auto 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 8s linear infinite;
+}
+.banner{
+  background: linear-gradient(to bottom, rgba(139, 139, 139, 0.151),rgb(0, 0, 0)),url('../../../assets/images/home_banner.png');
+}
+.content{
+  height: 100vh;
+  width: 100vw;
+  /* background-color: #000; */
+  position: relative;
+}
+.content::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(44, 44, 44, 0.13);
+  backdrop-filter: blur(5px);
+  z-index: -1;
+}
+.text {
+  /* background-color: rgb(243, 154, 154); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+.text h1{
+  text-shadow: 8px 8px 8px rgba(255, 255, 255, 0);
+}
+.logo{
+  padding: 80px 0 50px 0;
+  height: 500px;
+  text-align: center;
+  z-index: 100;
+}
+.logo img {
+ height: 100%;
+ border-radius: 8px;
+}
+.mission {
+  text-align: center;
+  padding: 70px;
+}
+.mission p{
+    padding: 40px;
+    font-size: 22px;
+}
+.category h1{
+text-align: center;
+}
+.col-2 img{
+  height: 100px;
+  width: 100px;
+   border-radius: 50%;
+   -webkit-border-radius: 50%;
+   -moz-border-radius: 50%;
+   -ms-border-radius: 50%;
+   -o-border-radius: 50%;
+}

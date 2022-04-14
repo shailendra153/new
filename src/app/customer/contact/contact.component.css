@@ -1,0 +1,33 @@
+.contact-banner{
+  background-color: rgb(250, 239, 193);
+  }
+  .heading{
+  padding-top:80px;
+  text-align: center;
+  text-shadow: 2px 1px 1px rgba(0, 0, 0, 0.25);
+  }
+
+  .container {
+  padding: 70px;
+  margin-bottom: 20px;
+  }
+  .container h3 {
+    padding: -20px;
+  }
+  .form-inline{
+  padding-top: 50px;
+  }
+  .details {
+  padding-top: 50px;
+  }
+
+  .form-group label,input{
+  padding:5px;
+  }
+
+  .form-inline .send{
+    margin: 20px 0;
+    font-size:20px;
+    padding: 5px 25px;
+
+  }
