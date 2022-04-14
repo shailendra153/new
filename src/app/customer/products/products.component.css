@@ -1,0 +1,44 @@
+#product-banner {
+  background-color: var(--secondary);
+  max-width: 100%;
+  max-height: 40em;
+  padding: 40px;
+}
+
+#inside-banner {
+  width: 100%;
+  width: 100%;
+  /* padding: 20px; */
+}
+
+#sub-hero {
+  background-color: var(--secondary)
+}
+
+#sub-banner {
+  padding: 2em;
+}
+
+#subhero-text {
+  padding: 50px 30px;
+  margin: auto;
+}
+
+#subhero-text h3 {
+  font-size: 2em;
+}
+
+#bannner-image {
+  width: 100%;
+  max-height: 100%;
+}
+
+.myDiv {
+  height: 286px;
+  width: 249px;
+}
+
+.product-image-div {
+  height: 100px;
+  background-color: red;
+}

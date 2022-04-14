@@ -1,0 +1,63 @@
+.about_banner{
+    padding-top: 40px;
+    padding-left: 400px;
+}
+.aboutHeadding{
+    text-align: center;
+    padding-top: 50px;
+
+}
+.aboutText{
+    padding-right: 200px;
+    padding-left: 200px;
+    padding-top: 40px;
+}
+.about_banner2 img{
+    width: 100%;
+}
+.container {
+    box-shadow: 3px;
+
+}
+
+.col-md-6 h2{
+    
+    width: 300px;
+    /* padding-top: 50px; */
+    /* padding-left: 40px; */
+}
+.col-md-6 p{
+    /* padding-top: 25px; */
+    /* padding-left: 40px; */
+
+
+}
+.teamtittle{
+    text-align: center;
+    padding-top: 20px;
+}
+.teamtittle p{
+    padding-top: 20px;
+}
+.col-md-2{
+    width: 20px;
+}
+.content{
+    padding: 30px 25px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.315);
+}
+.about-cards{
+    padding: 50px 0 ;
+}
+
+.image-col-2{
+    padding: 30px 30px;
+}
+.textS4a1 h2{
+    text-align: center;
+    
+}
+.team img{
+    height: 100%;
+    width: 100%;
+}
