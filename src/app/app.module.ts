@@ -5,14 +5,18 @@ import  { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomerModule } from './customer/customer.module';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
+// import { SigninComponent } from './customer/signin/signin.component';
 // import { AuthenticateService } from './customer/Authenticate.service';
 
 // import { AngularFontAwesomeModule} from 'angular-font-awesome'
+import { AuthenticateService } from './service/Authenticate.service';
+import { TokenIntercepterService } from './service/token-intercepter.service';
+import { ErrorpageComponent } from './errorpage/errorpage.component';
 @NgModule({
   declarations: [
     AppComponent,
-
+    ErrorpageComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,11 @@ import {HttpClientModule} from '@angular/common/http'
     HttpClientModule
     // AngularFontAwesomeModule
   ],
-  providers: [],
+  providers: [AuthenticateService,{
+    provide: HTTP_INTERCEPTORS,
+    useClass:TokenIntercepterService,
+    multi:true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

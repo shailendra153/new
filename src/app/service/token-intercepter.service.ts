@@ -11,7 +11,7 @@ export class TokenIntercepterService implements HttpInterceptor{
   intercept(request:HttpRequest<any>,next:HttpHandler){
     let tokenizedRequest = request.clone({
       setHeaders: {
-        Authrization : 'Bearer' +localStorage.getItem('jwtToken')
+        Authorization : 'Bearer' +localStorage.getItem('jwt_token')
       }
     })
     return next.handle(tokenizedRequest);

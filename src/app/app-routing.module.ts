@@ -14,27 +14,63 @@ import { SigninComponent } from './customer/signin/signin.component';
 import { SignupComponent } from './customer/signup/signup.component';
 import { SigninComponent as adminSignin } from './admin/signin/signin.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { ErrorpageComponent } from './errorpage/errorpage.component';
 
 const routes: Routes = [
   {
     path: "", component: CustomerComponent, children: [
-      {path: "", component: HomeComponent,},
-      { path: "home", component: HomeComponent },
-      { path: "products", component: ProductsComponent},
-      { path: "about-us", component: AboutComponent },
-      { path: "contact-us", component: ContactComponent },
-      { path: "search", component: SearchbarComponent },
-      { path: "cart", component: CartComponent },
-      { path: "favorite", component: FavoriteComponent },
-      { path: "sign-in", component: SigninComponent },
-      { path: "sign-up", component: SignupComponent }
+      {
+        path: "",
+        component: HomeComponent
+      },
+      {
+        path: "home",
+        component: HomeComponent
+      },
+      {
+        path: "products",
+        component: ProductsComponent
+      },
+      {
+        path: "about-us",
+        component: AboutComponent
+      },
+      {
+        path: "contact-us",
+        component: ContactComponent
+      },
+      {
+        path: "search",
+        component: SearchbarComponent
+      },
+      {
+        path: "cart",
+        component: CartComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: "favorite",
+        component: FavoriteComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: "sign-in",
+        component: SigninComponent
+      },
+      {
+        path: "sign-up",
+        component: SignupComponent
+      },
+      { path: "**", component: ErrorpageComponent },
 
     ]
   },
-  { path: "admin", component: AdminComponent, children:[
-    { path:"", component: DashboardComponent},
-    { path: "sign-in", component:adminSignin }
-  ]}
+  {
+    path: "admin", component: AdminComponent, children: [
+      { path: "", component: DashboardComponent },
+      { path: "sign-in", component: adminSignin }
+    ]
+  }
 ];
 
 @NgModule({

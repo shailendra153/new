@@ -1,6 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
-import { AuthenticateService } from '../Authenticate.service';
+import { AuthenticateService } from '../../service/Authenticate.service';
 
 @Component({
   selector: 'app-signin',
@@ -8,19 +9,22 @@ import { AuthenticateService } from '../Authenticate.service';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-
   email: string='';
   password: string='';
   constructor(private _authenticate:AuthenticateService, private _router:Router) { }
 
   public signin(){
-
     this._authenticate.login(this.email,this.password).subscribe((data) => {
-      if(data){
-        alert('Login successful');
-        this._router.navigate(['home']);
-      }else{
-        alert('Login failed');
+
+      if(data.status){
+        localStorage.setItem('jwt_token',data.token)
+         this._router.navigate(['home']);
+      }
+
+    },err=>{
+      if(err instanceof HttpErrorResponse){
+          if(err.status==500)
+            window.alert("Internal Server Error");
       }
     })
   }

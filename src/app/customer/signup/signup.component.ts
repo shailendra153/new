@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticateService} from '../Authenticate.service'
+import { AuthenticateService} from '../../service/Authenticate.service'
 import { Router} from '@angular/router'
 @Component({
   selector: 'app-signup',
@@ -16,8 +16,9 @@ export class SignupComponent implements OnInit {
 
   public signup(){
     this._auth.register(this.name,this.email,this.mobile,this.password).subscribe((data)=>{
-      if(data){
+      if(data.status){
         console.log(data);
+        localStorage.setItem('jwt-token',data.token);
         this._router.navigate(['sign-in']);
       }else{
 

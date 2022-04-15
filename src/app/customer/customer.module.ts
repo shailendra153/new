@@ -14,9 +14,9 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 import { CustomerComponent } from './customer.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule} from '@angular/forms';
-import { AuthenticateService } from './Authenticate.service';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TokenIntercepterService } from '../token-intercepter.service';
+import { AuthenticateService } from '../service/Authenticate.service';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { TokenIntercepterService } from '../service/token-intercepter.service';
 // import { AuthenticateService } from './Authenticate.service';
 
 
@@ -41,12 +41,9 @@ import { TokenIntercepterService } from '../token-intercepter.service';
     CommonModule,
     RouterModule,
     FormsModule,
+    HttpClientModule
 
   ],
-  providers: [AuthenticateService,{
-    provide: HTTP_INTERCEPTORS,
-    useClass:TokenIntercepterService,
-    multi:true,
-  }],
+  providers: [],
 })
 export class CustomerModule { }
