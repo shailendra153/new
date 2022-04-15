@@ -3,7 +3,7 @@
 
 :root {
   --primary : #0081DE;
-  --secondary : rgba(236, 206, 129, 0.737); 
+  --secondary : rgb(250, 239, 193);
   --dark : #1c1c1c;
   --light : #ffffff;
 }

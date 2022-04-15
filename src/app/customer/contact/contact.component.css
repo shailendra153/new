@@ -1,5 +1,6 @@
 .contact-banner{
-  background-color: rgb(250, 239, 193);
+  background-color: var(--secondary);
+  width:100vw;
   }
   .heading{
   padding-top:80px;

@@ -20,7 +20,7 @@
   animation: shine 8s linear infinite;
 }
 .banner{
-  background: linear-gradient(to bottom, rgba(139, 139, 139, 0.151),rgb(0, 0, 0)),url('../../../assets/images/home_banner.png');
+  background: linear-gradient( rgba(0, 0, 0, 0.201),rgba(0, 0, 0, 0.626),rgba(0, 0, 0, 0.963),rgba(0, 0, 0, 0.863)),url('../../../assets/images/home_banner.png');
 }
 .content{
   height: 100vh;
@@ -28,7 +28,7 @@
   /* background-color: #000; */
   position: relative;
 }
-.content::before{
+/* .content::before{
   content: "";
   position: absolute;
   top: 0;
@@ -37,13 +37,14 @@
   width: 100%;
   background-color: rgba(44, 44, 44, 0.13);
   backdrop-filter: blur(5px);
-  z-index: -1;
-}
+
+} */
 .text {
   /* background-color: rgb(243, 154, 154); */
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
+
 }
 .text h1{
   text-shadow: 8px 8px 8px rgba(255, 255, 255, 0);
