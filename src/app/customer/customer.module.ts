@@ -14,11 +14,19 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 import { CustomerComponent } from './customer.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule} from '@angular/forms';
-import { AuthenticateService } from '../service/Authenticate.service';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { TokenIntercepterService } from '../service/token-intercepter.service';
+import { HttpClientModule } from '@angular/common/http';
+import { SingleProductComponent } from './single-product/single-product.component';
+import {SocialLoginModule,GoogleLoginProvider} from 'angularx-social-login'
 // import { AuthenticateService } from './Authenticate.service';
-
+ const socialProvider={
+   provide:"SocialAuthServiceConfig",
+   useValue:{
+     providers:[{
+       id:GoogleLoginProvider.PROVIDER_ID,
+       provider:new GoogleLoginProvider('565614006599-9svodm815pv44rg2tnetm5qhmr4irvju.apps.googleusercontent.com')
+     }]
+   }
+ };
 
 
 
@@ -35,15 +43,17 @@ import { TokenIntercepterService } from '../service/token-intercepter.service';
     CartComponent,
     FavoriteComponent,
     SearchbarComponent,
-    CustomerComponent
+    CustomerComponent,
+    SingleProductComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SocialLoginModule
 
   ],
-  providers: [],
+  providers: [socialProvider],
 })
 export class CustomerModule { }

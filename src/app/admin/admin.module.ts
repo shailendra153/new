@@ -10,6 +10,8 @@ import { AddCategoryComponent } from './add-category/add-category.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ViewCategoryComponent } from './view-category/view-category.component';
 import { ViewProductComponent } from './view-product/view-product.component';
+import { UpdateCategoryComponent } from './update-category/update-category.component';
+// import { ErrorpageComponent } from './errorpage/errorpage.component';
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { ViewProductComponent } from './view-product/view-product.component';
     AddCategoryComponent,
     AddProductComponent,
     ViewCategoryComponent,
-    ViewProductComponent
+    ViewProductComponent,
+    UpdateCategoryComponent,
   ],
   imports: [
     CommonModule,

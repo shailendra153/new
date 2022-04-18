@@ -1,1 +1,18 @@
-<p>view-category works!</p>
+<div class="container">
+  <div class="heading">
+    <h1>All Categories</h1>
+  </div>
+  <div class="row">
+    <div class="col-12 category-box" *ngFor="let Categories of CategoryList index as i">
+      <div class="category-content">
+        <span class="s-no">{{i + 1}}</span>
+        <h3 class="category-title">{{Categories.categoryName}}</h3>
+        <img src="{{Categories.categoryImage}}" alt="category image">
+        <div class="category-btn">
+          <a ><span (click)="updateCategory(Categories._id,i)"class="category-edit">Edit</span></a>
+          <a><span class="category-delete" (click)="deleteCategory(Categories._id,i)">Delete</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

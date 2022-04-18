@@ -1,0 +1,87 @@
+.heading{
+  margin:50px;
+  text-align:center;
+}
+.category-box{
+  width:100%;
+  margin-bottom: 10px;
+}
+.category-box .category-content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 80px;
+  border-radius: 10px;
+  /*background: rgb(244, 243, 243);
+  */box-shadow: 0 0 5px rgba(159, 159, 159, 0.5);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-left: 5px solid black;
+}
+.category-box .category-content .s-no{
+  font-size:28px;
+  font-weight:600;
+}
+.category-box .category-content .category-title{
+  font-size:22px;
+  text-shadow: 4px 4px 8px rgba(70, 70, 70, 0.5);
+}
+.category-box .category-content img{
+  height: 60px;
+  width: 80px;
+  border-radius:8px;
+  -webkit-border-radius:8px;
+  -moz-border-radius:8px;
+  -ms-border-radius:8px;
+  -o-border-radius:8px;
+}
+.category-btn span{
+  padding: 5px 20px;
+  box-shadow: 0 0 8px rgba(161, 161, 161, 0.8);
+  border-right:5px solid rgb(172, 172, 172);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+.category-btn .category-edit{
+  /* background: green; */
+  margin-right: 25px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  /* box-shadow: 0 0 8px rgba(161, 161, 161, 0.8); */
+}
+.category-btn .category-delete{
+  /* background: red; */
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  /* box-shadow: 0 0 8px rgba(161, 161, 161, 0.8); */
+
+}
+.category-btn a{
+  text-decoration: none;
+  font-size: 18px;
+  color: rgb(78, 78, 78);
+  font-weight:500;
+  cursor: pointer;
+}
+
+.category-btn a:hover .category-edit{
+  background: rgb(8, 131, 255);
+  border-right:5px solid rgb(8, 131, 255);
+  color: #fff;
+}
+.category-btn a:hover .category-delete{
+  background: rgb(130, 130, 130);
+  border-right:5px solid rgb(130, 130, 130);
+  color: #fff;
+}

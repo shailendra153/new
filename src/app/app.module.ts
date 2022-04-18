@@ -12,11 +12,12 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 // import { AngularFontAwesomeModule} from 'angular-font-awesome'
 import { AuthenticateService } from './service/Authenticate.service';
 import { TokenIntercepterService } from './service/token-intercepter.service';
-import { ErrorpageComponent } from './errorpage/errorpage.component';
+import { PageNoteFoundComponent } from './page-note-found/page-note-found.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    ErrorpageComponent
+    PageNoteFoundComponent
   ],
   imports: [
     BrowserModule,

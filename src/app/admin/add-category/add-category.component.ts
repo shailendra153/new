@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddCategoryComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+
+
+   }
 
   ngOnInit(): void {
   }
 
 }
+function addCategory(categoryModal: any) {
+  throw new Error('Function not implemented.');
+}
+
+function categoryModal(categoryModal: any) {
+  throw new Error('Function not implemented.');
+}
+

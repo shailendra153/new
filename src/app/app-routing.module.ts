@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './auth.guard';
@@ -14,7 +14,13 @@ import { SigninComponent } from './customer/signin/signin.component';
 import { SignupComponent } from './customer/signup/signup.component';
 import { SigninComponent as adminSignin } from './admin/signin/signin.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
-import { ErrorpageComponent } from './errorpage/errorpage.component';
+import { AddCategoryComponent } from './admin/add-category/add-category.component';
+import { AddProductComponent } from './admin/add-product/add-product.component';
+import { ViewCategoryComponent } from './admin/view-category/view-category.component';
+import { ViewProductComponent } from './admin/view-product/view-product.component';
+import { SingleProductComponent } from './customer/single-product/single-product.component';
+import { PageNoteFoundComponent } from './page-note-found/page-note-found.component';
+import { UpdateCategoryComponent } from './admin/update-category/update-category.component';
 
 const routes: Routes = [
   {
@@ -61,16 +67,26 @@ const routes: Routes = [
         path: "sign-up",
         component: SignupComponent
       },
-      { path: "**", component: ErrorpageComponent },
-
+      {
+        path : "signle_product",
+        component : SingleProductComponent
+      }
     ]
   },
   {
     path: "admin", component: AdminComponent, children: [
       { path: "", component: DashboardComponent },
-      { path: "sign-in", component: adminSignin }
+      { path: "dashboard", component: DashboardComponent },
+      { path: 'add-category', component: AddCategoryComponent},
+      { path: 'add-product', component: AddProductComponent,canActivate:[AuthGuard]},
+      { path: 'view-category', component: ViewCategoryComponent},
+      { path: 'view-product', component: ViewProductComponent},
+      { path: "sign-in", component: adminSignin },
+      {path:"update-category",component:UpdateCategoryComponent}
+      
     ]
-  }
+  },
+  { path: '**', component: PageNoteFoundComponent}
 ];
 
 @NgModule({

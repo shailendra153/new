@@ -16,39 +16,109 @@
     <h2>Category</h2>
   </div>
   <div class="row categories">
-    <div class="col-2 category-img">
+    <div class="col-2 category-img" *ngFor="let Categories of CategoryList">
       <a href="#">
-        <img src="../../../assets/images/bracelets.png" alt="category image">
-        <span>Bracelets</span>
+        <img src="{{ Categories.categoryImage }}" alt="category image" />
+        <span>{{ Categories.categoryName }}</span>
       </a>
     </div>
     <div class="col-2 category-img">
       <a href="#">
-        <img src="../../../assets/images/chains_banner.png" alt="category image">
-        <span>Chains</span>
+        <img
+          src="../../../assets/images/chains_banner.png"
+          alt="category image"
+        />
+        <span>More</span>
       </a>
-    </div>
-    <div class="col-2 category-img">
-      <a href="#">
-      <img src="../../../assets/images/Earrings_banner.png" alt="category image">
-      <span>Earrings</span>
-      </a>
-    </div>
-    <div class="col-2 category-img">
-      <a href="#">
-        <img src="../../../assets/images/coronet-banner.png" alt="category image">
-        <span>Coronet</span>
-      </a>
-    </div>
-    <div class="col-2 category-img">
-      <a href="#">
-        <img src="../../../assets/images/rings_banner.png" alt="category image">
-        <span>rings</span>
-      </a>
-    </div>
-    <div class="col-2 category-img">
-      <a href="#"><img src="../../../assets/images/bracelets.png" alt="category image"></a>
-      <span>Tika</span>
     </div>
   </div>
 </div>
+
+
+<!-- -------------------------Products-------------------------------------------- -->
+
+
+<div class="container products">
+  <div class="heading">
+    <h2>PRODUCTS</h2>
+  </div>
+  <div class="products-card">
+    <div class="row">
+      <div class="col-sm-6 col-lg-3 card-outer" *ngFor="let Product of ProductList">
+        <a  (click)="SingleProductId(Product._id)">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-img">
+                <img class="img-fluid" src="{{Product.productImage}}" />
+              </div>
+              <ul class="action">
+                <li>
+                  <i class="fa fa-heart" aria-hidden="true"></i>
+                </li>
+              </ul>
+            </div>
+            <div class="card-text">
+              <div class="product-content">
+                <div class="productName">
+                  <h3>{{Product.productName}}</h3>
+                </div>
+                <div class="rating">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <span>3.5/5</span>
+                </div>
+                <div class="price">
+                  <h6>₹ {{Product.productPrice}}</h6>
+                  <a class="product-cart-btn"
+                    >Add To Cart<i class="fa fa-shopping-cart"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 
+<div class="container text-center">
+    <div class="product-heading">
+      <h1>PRODUCTS</h1>
+    </div>
+
+    <div class="product-card">
+      <div class="row">
+        <div class="col-sm-6 col-lg-3 outer-card">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-image">
+                <img class="img-fluid" src="../../../assets/images/rings_banner.png" />
+              </div>
+              <ul class="action">
+                <li>
+                  <i class="fa fa-heart" aria-hidden="true"></i>
+                </li>
+              </ul>
+              <div class="card-text">
+                <div class="content">
+                  <div class="productName">
+                    <h3>Diamond Ring</h3>
+                  </div>
+                  <div class="rating">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <span>3.5/5</span>
+                  </div>
+                  <div class="price">
+                    <h6>₹ 500.00</h6>
+                    <a class="product-cart-btn"
+                      >Add To Cart<i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div> -->
