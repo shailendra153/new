@@ -1,1 +1,36 @@
-<p>single-product works!</p>
+<div class="container single-product">
+    <div class="row">
+        <div class="col-md-5 left">
+            <div class="product_image">
+                <img [src]="data.productImage" alt="product image">
+            </div>
+        </div>
+        <div class="col-md-7 right">
+            <div class="product-content">
+                <div class="buttons">
+                    <a href="#" class="btn btn-outline-success buy">Buy now</a>
+                    <a href="#" class="btn btn-outline-primary cart">Add to cart</a>
+                </div>
+                <div class="product-name">
+                    <h1>{{data.productName}}</h1>
+                </div>
+                <div class="price-rating">
+                    <span class="price">₹ {{data.productPrice}}</span>
+                    <span class="free-shiping">Free Delievery</span>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <span>3.5/5</span>
+                    </div>
+                </div>
+                <div class="product-discription">
+                    <div class="title">
+                        <h2>Product Details</h2>
+                    </div>
+                    <div class="discription">
+                        {{data.description}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

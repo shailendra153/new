@@ -22,7 +22,6 @@ export class SigninComponent implements OnInit {
       }else{
         console.log("not found")
       }
-
     },err=>{
       if(err instanceof HttpErrorResponse){
           if(err.status==500)
@@ -35,16 +34,14 @@ export class SigninComponent implements OnInit {
     this.socialService.authState.subscribe(data=>{
       this._authenticate.signinWithGoogle(data.email).subscribe(userData=>{
         if(userData.status){
-          localStorage.setItem('jwt_token',userData.token)
+          localStorage.setItem('jwt_token',userData.token);
            this._router.navigate(['home']);
         }else{
-    
-          console.log("not found")
+          alert("not found");
         }
         },err=>{
-          alert("First Signup Then login")
-          this._router.navigate(["sign-up"])
-
+          alert("Email not found please Sign up");
+          this._router.navigate(["sign-up"]);
         })
     })
     

@@ -68,7 +68,7 @@ const routes: Routes = [
         component: SignupComponent
       },
       {
-        path : "signle_product",
+        path : "signle-product",
         component : SingleProductComponent
       }
     ]
