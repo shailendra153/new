@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthenticateService } from 'src/app/service/Authenticate.service';
 import { ProductService } from '../../service/product.service';
 import { UpdateDataService } from '../../service/update-data.service';
+import { CartService } from '../../service/cart.service';
 
 @Component({
   selector: 'app-products',
@@ -12,14 +13,22 @@ import { UpdateDataService } from '../../service/update-data.service';
 export class ProductsComponent implements OnInit {
   ProductList: any;
 
-  constructor(private _authenticate:AuthenticateService, private _router:Router, private _product:ProductService, private _update_data:UpdateDataService) { 
+  constructor(private _authenticate:AuthenticateService, private _router:Router, private _product:ProductService, private _update_data:UpdateDataService, private _cart:CartService) { 
     this._product.ProductList().subscribe(data => {
       this.ProductList = data;
     });
   }
-  addToCart(){
+
+  userID = localStorage.getItem('UserLoginId');
+  AddToCart(productId:any){
     if(this._authenticate.checkToken()){
-      alert('added successful');
+      this._cart.AddProductInCart(productId,this.userID).subscribe((data)=>{
+        if(data){
+          alert('Product added Successfully');
+        }
+      },(err)=>{
+        alert('can not be add');
+      })
     }else{
       this._router.navigate(['sign-in']);
     }

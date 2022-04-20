@@ -57,17 +57,18 @@
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.274);
   margin: 20px 0;
   padding: 10px 10px 15px 10px;
+  height: 400px;
   cursor: pointer;
 }
 .card .card-content {
   position: relative;
-  height: 250px;
+  height: 300px;
   cursor: pointer;
   overflow: hidden;
 }
 .card .card-content .card-img{
   height: 100%;
-
+width: 100%;
 }
 .card-outer:hover img{
   transition: all 0.5s ease-out;
@@ -249,4 +250,10 @@
   position: absolute;
   bottom: 150px;
   right: 110px;
+}
+
+@media screen and (max-width:576px){
+  .products-card, .sub-product{
+    display: none;
+  }
 }

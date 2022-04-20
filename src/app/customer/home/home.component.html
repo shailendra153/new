@@ -16,7 +16,7 @@
     <h2>Category</h2>
   </div>
   <div class="row categories">
-    <div class="col-2 category-img" *ngFor="let Categories of CategoryList">
+    <div class="col-lg-2 col-md-4 category-img" *ngFor="let Categories of CategoryList">
       <a href="#">
         <img src="{{ Categories.categoryImage }}" alt="category image" />
         <span>{{ Categories.categoryName }}</span>
@@ -45,9 +45,9 @@
   <div class="products-card">
     <div class="row">
       <div class="col-sm-6 col-lg-3 card-outer" *ngFor="let Product of ProductList">
-        <a (click)="SingleProductId(Product._id)" >
+      
           <div class="card">
-            <div class="card-content">
+            <div class="card-content" (click)="SingleProductId(Product._id)">
               <div class="card-img">
                 <img class="img-fluid" src="{{Product.productImage}}" />
               </div>
@@ -68,14 +68,14 @@
                 </div>
                 <div class="price">
                   <h6>₹ {{Product.productPrice}}</h6>
-                  <a class="product-cart-btn"
+                  <a class="product-cart-btn" (click)="AddToCart(Product._id)"
                     >Add To Cart<i class="fa fa-shopping-cart"></i
                   ></a>
                 </div>
               </div>
             </div>
           </div>
-        </a>
+       
       </div>
     </div>
   </div>

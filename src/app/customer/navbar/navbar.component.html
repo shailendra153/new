@@ -19,19 +19,10 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="contact-us">CONTACT US</a>
         </li>
-        <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li> -->
+        
       </ul>
       <ul class="navbar-nav right-nav">
+
         <li class="nav-item">
           <a *ngIf="!isLoggedIn()" class="nav-link" routerLink="sign-in">SIGN IN</a>
         </li>
@@ -39,18 +30,23 @@
           <a *ngIf="!isLoggedIn()" class="nav-link" routerLink="sign-up">SIGN UP</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="isLoggedIn()" (click)="signout()" class="nav-link" routerLink="sign-out">SIGN OUT</a>
+          <a class="nav-link"><i class="fa fa-search mr-5 mt-1" aria-hidden="true"></i></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="favorite"><i class="fa fa-heart"
-              aria-hidden="true"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="cart"><i class="fas fa-shopping-cart"></i></a>
-        </li>
+       
+        <div class="dropdown">
+          <a class="dropdown-toggle" type="button" id="userProfile" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="iserProfile">
+            <li><a class="nav-link" routerLink="cart"><i class="fa fa-user"></i>Profile</a></li>
+            <li><a class="nav-link" routerLink="cart"><i class="fa fa-shopping-cart"></i>Cart</a></li>
+            <li><a class="nav-link" routerLink="favorite"><i class="fa fa-heart"
+              aria-hidden="true"></i>WishList</a></li>
+            <li><a *ngIf="isLoggedIn()" (click)="signout()" class="nav-link" routerLink="sign-out">SIGN OUT</a>
+            </li>
+          </ul>
+        </div>
+
       </ul>
     </div>
   </div>

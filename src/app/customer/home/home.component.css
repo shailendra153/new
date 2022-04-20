@@ -9,11 +9,11 @@
 }
 .text h1 {
   margin: 60;
-  font-size: 108px;
+  font-size: 80px;
   font-weight: 900;
   letter-spacing: 5px;
   color: white;
-  background: url("../../../assets/images/rings_banner.png");
+  background: url("../../../assets/images/home_banner.png");
   background-size: auto 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

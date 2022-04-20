@@ -37,10 +37,10 @@
   background: #000;
   opacity: 0;
   transition: 0.3s ease-in-out;
-  -webkit-transition: 0.3s ease;
-  -moz-transition: 0.3s ease;
-  -ms-transition: 0.3s ease;
-  -o-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -ms-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
 }
 .nav-item:hover::before{
   opacity: 1;
@@ -50,4 +50,18 @@
 }
 .right-nav .nav-item .nav-link i{
   font-size:20px !important;
+}
+.dropdown #userProfile i{
+  color: rgb(83, 83, 83);
+  font-size: 28px;
+  vertical-align: middle;
+}
+.dropdown .dropdown-menu{
+padding: 10px 20px;
+}
+.dropdown .dropdown-menu li a{
+  color: rgb(83, 83, 83);
+}
+.dropdown .dropdown-menu li a i{
+  margin-right: 10px;
 }
