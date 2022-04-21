@@ -12,7 +12,8 @@ import { AuthenticateService } from '../../service/Authenticate.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  CategoryList: any;
+  CategoryList: any[]=[];
+  ids: string[]=[];
   ProductList: any;
   constructor(
     private _category: CategoryService,
@@ -30,20 +31,34 @@ export class HomeComponent implements OnInit {
       this.ProductList = data;
     });
   }
-  userID = localStorage.getItem('UserLoginId');
+ 
   AddToCart(productId: any) {
+    let value:number;
+  
     // console.log(productId + " " + this.userID);
     if (this._authenticate.checkToken()) {
-      this._cart.AddProductInCart(productId, this.userID).subscribe(
-        (data) => {
-          if (data) {
-            alert('Product added Successfully');
-          }
-        },
-        (err) => {
-          alert('can not be add');
+      this._cart.FetchCart(localStorage.getItem("UserLoginId")).subscribe(data=>{
+        for(let item of data[0].products){
+          this.ids.push(item._id)
         }
-      );
+        console.log(this.ids)
+         value=  this.ids.indexOf(productId);
+         console.log(value)
+        if(value==(-1)){
+          this._cart.AddProductInCart(productId, localStorage.getItem("UserLoginId")).subscribe(
+            (data) => {
+              if (data) {
+                alert('Product added Successfully');
+              }
+            },
+            (err) => {
+              alert('can not be add');
+            }
+          );
+        }else{alert("Already Added")}  
+    
+     
+    })
     } else {
       this._router.navigate(['sign-in']);
     }

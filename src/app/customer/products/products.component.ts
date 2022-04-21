@@ -16,6 +16,7 @@ export class ProductsComponent implements OnInit {
   constructor(private _authenticate:AuthenticateService, private _router:Router, private _product:ProductService, private _update_data:UpdateDataService, private _cart:CartService) { 
     this._product.ProductList().subscribe(data => {
       this.ProductList = data;
+      console.log(this.ProductList);
     });
   }
 

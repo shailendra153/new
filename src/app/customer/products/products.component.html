@@ -35,7 +35,7 @@
   </div>
   <div class="products-card">
     <div class="row">
-      <div class="col-sm-6 col-lg-3 card-outer">
+      <div class="col-sm-6 col-lg-3 card-outer" *ngFor="let Product of ProductList">
         <div class="card">
           <div class="card-content">
             <div class="card-img">
@@ -163,7 +163,7 @@
               </div>
               <div class="price">
                 <h6>₹ 500.00</h6>
-                <a class="cart-btn"
+                <a class="cart-btn" 
                   >Add To Cart<i class="fa fa-shopping-cart"></i
                 ></a>
               </div>

@@ -44,7 +44,7 @@
   </div>
   <div class="products-card">
     <div class="row">
-      <div class="col-sm-6 col-lg-3 card-outer" *ngFor="let Product of ProductList">
+      <div class="col-sm-6 col-lg-3 card-outer" *ngFor="let Product of ProductList.slice(0,35);">
       
           <div class="card">
             <div class="card-content" (click)="SingleProductId(Product._id)">

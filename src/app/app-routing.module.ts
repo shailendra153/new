@@ -13,6 +13,8 @@ import { SigninComponent } from './customer/signin/signin.component';
 import { SignupComponent } from './customer/signup/signup.component';
 import { SingleProductComponent } from './customer/single-product/single-product.component';
 import { PageNoteFoundComponent } from './page-note-found/page-note-found.component';
+import { PlaceorderComponent } from './customer/placeorder/placeorder.component';
+import { CategorySpecialComponent } from './customer/category-special/category-special.component';
 
 const routes: Routes = [
   {
@@ -46,6 +48,7 @@ const routes: Routes = [
         component: CartComponent,
         canActivate: [AuthGuard]
       },
+      
       {
         path: "favorite",
         component: FavoriteComponent,
@@ -62,7 +65,12 @@ const routes: Routes = [
       {
         path : "signle-product",
         component : SingleProductComponent
-      }
+      },
+      {
+        path: "place-order",
+        component:PlaceorderComponent
+      },
+      {path:"special",component:CategorySpecialComponent}
     ]
   },
   

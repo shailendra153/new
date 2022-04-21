@@ -22,9 +22,7 @@ export class CartService {
    return this._http.post<any>(this.ViewCartUrl,{userId:UserID});
   }
 
-  public removeProduct(ProductId:any){
-    return this._http.post(this.RemoveProductUrl,{
-      productId:ProductId
-    })
+  public removeProduct(ProductId:any,userId:any){
+    return this._http.post(this.RemoveProductUrl,{productId:ProductId,cartId:userId});
   }
 }

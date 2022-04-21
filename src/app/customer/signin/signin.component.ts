@@ -17,7 +17,8 @@ export class SigninComponent implements OnInit {
     this._authenticate.login(this.email,this.password).subscribe((data) => {
 
       if(data.status){
-        localStorage.setItem('jwt_token',data.token)
+        localStorage.setItem('jwt_token',data.token);
+        localStorage.setItem('UserLoginId',data.result._id);
          this._router.navigate(['home']);
       }else{
         console.log("not found")
@@ -35,6 +36,7 @@ export class SigninComponent implements OnInit {
       this._authenticate.signinWithGoogle(data.email).subscribe(userData=>{
         if(userData.status){
           localStorage.setItem('jwt_token',userData.token);
+          localStorage.setItem('UserLoginId',userData.result._id);
            this._router.navigate(['home']);
         }else{
           alert("not found");
