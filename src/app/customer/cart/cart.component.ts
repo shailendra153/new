@@ -16,6 +16,7 @@ export class CartComponent implements OnInit {
     this._cart.FetchCart(localStorage.getItem('UserLoginId')).subscribe((data)=>{
         this.cartId=data[0]._id;
       this.product=data[0].products
+      console.log('this is testing cart');
       // console.log(data[0].products);
       // console.log(this.product[0].productName)
     })
