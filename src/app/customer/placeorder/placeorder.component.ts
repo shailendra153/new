@@ -18,7 +18,7 @@ export class PlaceorderComponent implements OnInit {
   amount:any;
   
   onpay(){
-    alert("yufgu")
+    
     this._cart.createOrder(this.total).subscribe(data=>{
       console.log(data);
       var options = {
@@ -29,11 +29,11 @@ export class PlaceorderComponent implements OnInit {
         "description": "Test Transaction",
         "image": "https://example.com/your_logo",
         "order_id": data.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-        "callback_url": "http://localhost:3000/order-status",
+        "callback_url": "https://artifical.herokuapp.com/order-status",
         "prefill": {
             "name": "Gaurav Kumar",
             "email": "gaurav.kumar@example.com",
-            "contact": "9999999999"
+            "contact": "6264241510"
         },
         "notes": {
             "address": "Razorpay Corporate Office"
