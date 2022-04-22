@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,11 @@ export class CartService {
 
   public removeProduct(ProductId:any,userId:any){
     return this._http.post(this.RemoveProductUrl,{productId:ProductId,cartId:userId});
+  }
+  orderApi  = "http://localhost:3000/order"
+
+  public createOrder(amount:any):Observable<any>
+  {
+      return this._http.post<any>(this.orderApi, {amount:amount});
   }
 }

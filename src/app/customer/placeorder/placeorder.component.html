@@ -2,7 +2,7 @@
     <div class="cart-heading">
         <h2>Place Order</h2>
     </div>
-    <div class="row cart" *ngFor="let item of data  ">
+    <div class="row cart" *ngFor="let item of data  index as i ">
         <!-- <input type="hidden" name="s" value="i+1"> -->
         <div class="col-md-3 left-cart cart_product">
             <div class="cart_product_image">
@@ -23,15 +23,19 @@
                     <a >remove</a>
                 </div> -->
                 <div class="quantity">
-                    <input type="number" max="{{item.quantity}}" >
+
+                    <input (change)="value($event,item.productName,i)" type="number" [max]="item.quantity" min="1" defaultValue="">
+
                 </div>
                 <div class="quantity">
-                    <input type="text" disabled="true">
+                    <h2>{{item.total}}</h2>
                 </div>
             </div>
         </div>
     </div>
+    <h1>Total price</h1>
+    <h1>{{total}}</h1>
     <div class="checkout">
-        <a class="checkout_btn">Pay Now</a>
+        <a class="checkout_btn" (click)="onpay()">Pay Now</a>
     </div>
 </div>

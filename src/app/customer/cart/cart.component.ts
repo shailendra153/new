@@ -24,17 +24,18 @@ export class CartComponent implements OnInit {
 
   userId = localStorage.getItem("UserLoginId");
   removeproduct(productid:any,index:number){
-    console.log(productid);
-    this._cart.removeProduct(productid,this.cartId).subscribe((data)=>{
-      console.log(localStorage.getItem("UserLoginId"))
-        if(data){
-          alert('removed')
-          this.product.splice(index,1);
-        }else{
-          alert('not remove');
-        }
-    })
-  }
+    if(confirm("Are you Sure")){
+     this._cart.removeProduct(productid,this.cartId).subscribe((data)=>{
+       console.log(localStorage.getItem("UserLoginId"))
+         if(data){
+           alert('removed')
+           this.product.splice(index,1);
+         }else{
+           alert('not remove');
+         }
+     })
+    }
+   }
   cart_product:any;
   public PlaceOrder(){
     this._update.setData(this.product);

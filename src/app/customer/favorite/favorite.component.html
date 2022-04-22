@@ -1,1 +1,38 @@
-<p>favorite works!</p>
+<div class="container carts">
+    <div class="cart-heading">
+        <h2>Your Favorite Products</h2>
+    </div>
+    <div class="row cart" *ngFor="let data of product index as i ">
+        <!-- <input type="hidden" name="s" value="i+1"> -->
+        <div class="col-md-3 left-cart cart_product">
+            <div class="cart_product_image">
+                <img class="img-fluid" src="{{data.productImage}}" alt="product image">
+            </div>
+        </div>
+        <div class="col-md-9 right-cart cart_product">
+            <div class="cart_product_content">
+                <div class="product_name">
+                    <h3>{{data.productName}}</h3>
+                </div>
+                <div class="product_price">
+                    <h3>
+                        Price <span>₹ {{data.productPrice}}</span>
+                    </h3>
+                </div>
+                <div class="row">
+                    <div class="col text-center">
+                        <div class="remove_btn add">
+                            <a style="background-color: blue;" (click)="AddToCart(data._id)">Add To Cart</a>
+                        </div>
+                    </div>
+                    <div class="col text-center">
+                        <div class="remove_btn">
+                            <a (click)="removeproduct(data._id,i)">remove</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
