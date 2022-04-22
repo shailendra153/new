@@ -26,7 +26,7 @@ export class CartService {
   public removeProduct(ProductId:any,userId:any){
     return this._http.post(this.RemoveProductUrl,{productId:ProductId,cartId:userId});
   }
-  orderApi  = "http://localhost:3000/order"
+  orderApi  = "https://artifical.herokuapp.com/order"
 
   public createOrder(amount:any):Observable<any>
   {
