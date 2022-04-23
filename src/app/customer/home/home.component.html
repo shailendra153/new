@@ -16,18 +16,21 @@
         <h2>Category</h2>
     </div>
     <div class="row categories">
-        <div class="col-lg-2 col-md-4 category-img" *ngFor="let Categories of CategoryList">
+        <div class="col-lg-2 col-md-4 col-sm-6 category-img" *ngFor="let Categories of CategoryList">
             <a href="#">
                 <img src="{{ Categories.categoryImage }}" alt="category image" />
                 <span>{{ Categories.categoryName }}</span>
             </a>
         </div>
-        <div class="col-2 category-img">
-            <a href="#">
-                <img src="../../../assets/images/chains_banner.png" alt="category image" />
-                <span>More</span>
-            </a>
-        </div>
+        <!-- <div class="col-2 category-img">
+      <a href="#">
+        <img
+          src="../../../assets/images/chains_banner.png"
+          alt="category image"
+        />
+        <span>More</span>
+      </a>
+    </div> -->
     </div>
 </div>
 
@@ -49,15 +52,15 @@
                             <img class="img-fluid" src="{{Product.productImage}}" />
                         </div>
                         <ul class="action">
-                            <li (click)="AddToFavorite(Product._id)">
+                            <li>
                                 <i class="fa fa-heart" aria-hidden="true"></i>
                             </li>
                         </ul>
                     </div>
                     <div class="card-text">
                         <div class="product-content">
-                            <div class="productName">
-                                <h3 (click)="SingleProductId(Product._id)">{{Product.productName}}</h3>
+                            <div class="productName" (click)="SingleProductId(Product._id)">
+                                <h3>{{Product.productName}}</h3>
                             </div>
                             <div class="rating">
                                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -76,12 +79,12 @@
         </div>
     </div>
 </div>
-<!-- 
+<!--
 <div class="container text-center">
     <div class="product-heading">
       <h1>PRODUCTS</h1>
     </div>
-
+ 
     <div class="product-card">
       <div class="row">
         <div class="col-sm-6 col-lg-3 outer-card">

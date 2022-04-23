@@ -18,18 +18,21 @@ export class PlaceorderComponent implements OnInit {
   amount:any;
   
   onpay(){
-    
     this._cart.createOrder(this.total).subscribe(data=>{
       console.log(data);
       var options = {
-        "key": "rzp_test_gdzLmWFRzOIDAm", // Enter the Key ID generated from the Dashboard
+        "key": "rzp_test_gdzLmWFRzOIDAm",// Enter the Key ID generated from the Dashboard
         "amount": "1000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
         "currency": "INR",
         "name": "Acme Corp",
         "description": "Test Transaction",
         "image": "https://example.com/your_logo",
         "order_id": data.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-        "callback_url": "https://artifical.herokuapp.com/order-status",
+        "handler": function (response: { razorpay_payment_id: any; razorpay_order_id: any; razorpay_signature: any; }){
+          alert(response.razorpay_payment_id);
+          alert(response.razorpay_order_id);
+          alert(response.razorpay_signature)
+      },
         "prefill": {
             "name": "Gaurav Kumar",
             "email": "gaurav.kumar@example.com",
@@ -43,13 +46,19 @@ export class PlaceorderComponent implements OnInit {
         }
     };
 
-    var rzp1 = new Razorpay(options);
-    rzp1.open(function(data:any){
-      console.log(data);
-    });
+    var rzp1 = new  Razorpay(options);
+    rzp1.on('payment.failed', function (response: { error: { code: any; description: any; source: any; step: any; reason: any; metadata: { order_id: any; payment_id: any; }; }; }){
+      alert(response.error.code);
+      alert(response.error.description);
+      alert(response.error.source);
+      alert(response.error.step);
+      alert(response.error.reason);
+      alert(response.error.metadata.order_id);
+      alert(response.error.metadata.payment_id);
+});
+    rzp1.open();
     })
   }
-
   ngOnInit(): void {
     this._cart.FetchCart(localStorage.getItem('UserLoginId')).subscribe(data=>{
       this.data=data[0].products;

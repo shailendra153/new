@@ -15,7 +15,8 @@ import { SingleProductComponent } from './customer/single-product/single-product
 import { PageNoteFoundComponent } from './page-note-found/page-note-found.component';
 import { PlaceorderComponent } from './customer/placeorder/placeorder.component';
 import { CategorySpecialComponent } from './customer/category-special/category-special.component';
-
+import { UserProfileComponent } from './customer/user-profile/user-profile.component';
+ 
 const routes: Routes = [
   {
     path: "", component: CustomerComponent, children: [
@@ -48,7 +49,7 @@ const routes: Routes = [
         component: CartComponent,
         canActivate: [AuthGuard]
       },
-      
+     
       {
         path: "favorite",
         component: FavoriteComponent,
@@ -63,22 +64,34 @@ const routes: Routes = [
         component: SignupComponent
       },
       {
-        path : "signle-product",
-        component : SingleProductComponent
+        path : "single-product",
+        component : SingleProductComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: "place-order",
-        component:PlaceorderComponent
+        component:PlaceorderComponent,
+        canActivate: [AuthGuard]
       },
-      {path:"special",component:CategorySpecialComponent}
+      {
+        path: 'profile',
+        component: UserProfileComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path:"special",
+        component:CategorySpecialComponent
+      }
     ]
   },
-  
+ 
   { path: '**', component: PageNoteFoundComponent}
 ];
-
+ 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+ 
+

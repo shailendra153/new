@@ -24,7 +24,7 @@
     </div>
     <div class="products-card">
         <div class="row">
-            <div class="col-sm-6 col-lg-3 card-outer" *ngFor="let Product of ProductList">
+            <div class="col-sm-6 col-lg-3 card-outer">
                 <div class="card">
                     <div class="card-content">
                         <div class="card-img">
@@ -47,8 +47,7 @@
                             </div>
                             <div class="price">
                                 <h6>₹ 500.00</h6>
-                                <a class="cart-btn">Add To Cart<i class="fa fa-shopping-cart"></i
-                ></a>
+                                <a class="cart-btn">Add To Cart<i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
                     </div>
@@ -77,8 +76,7 @@
                             </div>
                             <div class="price">
                                 <h6>₹ 500.00</h6>
-                                <a class="cart-btn">Add To Cart<i class="fa fa-shopping-cart"></i
-                ></a>
+                                <a class="cart-btn">Add To Cart<i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
                     </div>
@@ -107,8 +105,7 @@
                             </div>
                             <div class="price">
                                 <h6>₹ 500.00</h6>
-                                <a class="cart-btn">Add To Cart<i class="fa fa-shopping-cart"></i
-                ></a>
+                                <a class="cart-btn">Add To Cart<i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
                     </div>
@@ -137,8 +134,7 @@
                             </div>
                             <div class="price">
                                 <h6>₹ 500.00</h6>
-                                <a class="cart-btn">Add To Cart<i class="fa fa-shopping-cart"></i
-                ></a>
+                                <a class="cart-btn">Add To Cart<i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
                     </div>
@@ -175,8 +171,7 @@
                                 </div>
                                 <div class="price">
                                     <h6>₹ 500.00</h6>
-                                    <a class="cart-btn">Add To Cart<i class="fa fa-shopping-cart"></i
-                  ></a>
+                                    <a class="cart-btn">Add To Cart<i class="fa fa-shopping-cart"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -205,8 +200,7 @@
                                 </div>
                                 <div class="price">
                                     <h6>₹ 500.00</h6>
-                                    <a class="cart-btn">Add To Cart<i class="fa fa-shopping-cart"></i
-                  ></a>
+                                    <a class="cart-btn">Add To Cart<i class="fa fa-shopping-cart"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -239,8 +233,7 @@
                                 </div>
                                 <div class="price">
                                     <h6>₹ 500.00</h6>
-                                    <a class="cart-btn">Add To Cart<i class="fa fa-shopping-cart"></i
-                  ></a>
+                                    <a class="cart-btn">Add To Cart<i class="fa fa-shopping-cart"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -270,8 +263,7 @@
                                 </div>
                                 <div class="price">
                                     <h6>₹ 500.00</h6>
-                                    <a class="cart-btn">Add To Cart<i class="fa fa-shopping-cart"></i
-                  ></a>
+                                    <a class="cart-btn">Add To Cart<i class="fa fa-shopping-cart"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -292,15 +284,15 @@
                             <img class="img-fluid" src="{{Product.productImage}}" />
                         </div>
                         <ul class="action">
-                            <li (click)="AddToFavorite(Product._id)">
+                            <li>
                                 <i class="fa fa-heart" aria-hidden="true"></i>
                             </li>
                         </ul>
                     </div>
                     <div class="card-text">
                         <div class="content">
-                            <div class="productName">
-                                <h3 (click)="SingleProductId(Product._id)">{{Product.productName}}</h3>
+                            <div class="productName" (click)="SingleProductId(Product._id)">
+                                <h3>{{Product.productName}}</h3>
                             </div>
                             <div class="rating">
                                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -308,8 +300,7 @@
                             </div>
                             <div class="price">
                                 <h6>₹ {{Product.productPrice}}</h6>
-                                <a class="cart-btn" (click)="AddToCart(Product._id)">Add To Cart<i class="fa fa-shopping-cart"></i
-                ></a>
+                                <a class="cart-btn" (click)="AddToCart(Product._id)">Add To Cart<i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
                     </div>

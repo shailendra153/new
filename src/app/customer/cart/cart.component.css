@@ -1,27 +1,31 @@
-.carts{
+.carts {
     margin-bottom: 250px;
 }
-.cart-heading{
+
+.cart-heading {
     margin-top: 50px;
 }
-.cart{
+
+.cart {
     padding: 15px 10px;
     margin: 60px 0;
     border-top: 1px solid rgba(202, 202, 202, 0.904);
     border-bottom: 1px solid rgba(202, 202, 202, 0.904);
-    box-shadow: 0 0 5px rgba(202, 202, 202, 0.904);
-    
+    box-shadow: 0 0 3px rgba(216, 216, 216, 0.904);
 }
-.cart .cart_product{
+
+.cart .cart_product {
     max-height: 250px;
 }
-.cart .left-cart .cart_product_image{
+
+.cart .left-cart .cart_product_image {
     height: 100%;
     width: 100%;
     padding-right: 50px;
     border-right: 1px solid rgba(202, 202, 202, 0.904);
 }
-.cart .left-cart .cart_product_image img{
+
+.cart .left-cart .cart_product_image img {
     height: 100%;
     width: 100%;
     border-radius: 8px;
@@ -30,23 +34,26 @@
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
 }
+
 .cart .right-cart {
     padding: 15px 10px 15px 50px;
-    
 }
-.cart .right-cart .cart_product_content .product_name h3{
+
+.cart .right-cart .cart_product_content .product_name h3 {
     font-size: 25px;
 }
-.cart .right-cart .cart_product_content .product_price{
+
+.cart .right-cart .cart_product_content .product_price {
     margin: 50px 0;
 }
-.cart .right-cart .cart_product_content .product_price{}
-.cart .right-cart .cart_product_content .product_price h3 span{
-    font-size: 24px ;
+
+.cart .right-cart .cart_product_content .product_price h3 span {
+    font-size: 24px;
     font-weight: 500;
     margin-left: 15px;
 }
-.cart .right-cart .cart_product_content .remove_btn a{
+
+.cart .right-cart .cart_product_content .remove_btn a {
     padding: 4px 15px;
     background-color: rgb(81, 81, 81);
     color: white;
@@ -60,10 +67,12 @@
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
 }
+
 .checkout {
     text-align: right;
 }
-.checkout .checkout_btn{
+
+.checkout .checkout_btn {
     padding: 10px 15px;
     background-color: rgb(81, 81, 81);
     color: white;
@@ -76,5 +85,13 @@
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
-    
-} 
+}
+
+.cart_product .cart_product_content {
+    display: flex;
+}
+
+.cart_product .cart_product_content .remove_btn {
+    margin-left: 80px;
+    cursor: pointer;
+}

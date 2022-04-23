@@ -5,8 +5,7 @@ import { UpdateDataService } from '../../service/update-data.service';
 import { Router } from '@angular/router';
 import { CartService } from '../../service/cart.service';
 import { AuthenticateService } from '../../service/Authenticate.service';
-import { FavoriteService } from 'src/app/service/favorite.service';
-
+ 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -22,20 +21,20 @@ export class HomeComponent implements OnInit {
     private _update_data: UpdateDataService,
     private _router: Router,
     private _cart: CartService,
-    private _authenticate: AuthenticateService,
-    private _favorite:FavoriteService
+    private _authenticate: AuthenticateService
   ) {
     this._category.CategoryList().subscribe((data) => {
-      this.CategoryList = data.slice(0, 5);
+      this.CategoryList = data.slice(1, 6);
     });
-
+ 
     this._product.ProductList().subscribe((data) => {
       this.ProductList = data;
     });
   }
  
   AddToCart(productId: any) {
-    let value:number
+    let value:number;
+ 
     // console.log(productId + " " + this.userID);
     if (this._authenticate.checkToken()) {
       this._cart.FetchCart(localStorage.getItem("UserLoginId")).subscribe(data=>{
@@ -57,50 +56,22 @@ export class HomeComponent implements OnInit {
             }
           );
         }else{alert("Already Added")}  
-    
+   
      
     })
     } else {
       this._router.navigate(['sign-in']);
     }
   }
-
-  AddToFavorite(productId: any) {
-    let value:number
-    // console.log(productId + " " + this.userID);
-    if (this._authenticate.checkToken()) {
-      this._favorite.FetchFavorite(localStorage.getItem("UserLoginId")).subscribe(data=>{
-        for(let item of data[0].products){
-          this.ids.push(item._id)
-        }
-        console.log(this.ids)
-         value=  this.ids.indexOf(productId);
-         console.log(value)
-        if(value==(-1)){
-          this._favorite.AddProductInFavorite(productId, localStorage.getItem("UserLoginId")).subscribe(
-            (data) => {
-              if (data) {
-                alert('Product added Successfully');
-              }
-            },
-            (err) => {
-              alert('can not be add');
-            }
-          );
-        }else{alert("Already Added")}  
-    
-     
-    })
-    } else {
-      this._router.navigate(['sign-in']);
-    }
-  }
-  public SingleProductId(Id: String) {
+ 
+  public SingleProductId(Id: string) {
     this._product.FetchSingleProduct(Id).subscribe((data) => {
       console.log(data);
       this._update_data.setData(data);
-      this._router.navigate(['signle-product']);
+      this._router.navigate(['single-product']);
     });
   }
   ngOnInit(): void {}
 }
+ 
+

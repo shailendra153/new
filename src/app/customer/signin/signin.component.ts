@@ -15,10 +15,12 @@ export class SigninComponent implements OnInit {
 
   public signin(){
     this._authenticate.login(this.email,this.password).subscribe((data) => {
-
+ 
       if(data.status){
         localStorage.setItem('jwt_token',data.token);
         localStorage.setItem('UserLoginId',data.result._id);
+        localStorage.setItem('user-profile',JSON.stringify(data.result))
+       
          this._router.navigate(['home']);
       }else{
         console.log("not found")
@@ -30,6 +32,8 @@ export class SigninComponent implements OnInit {
       }
     })
   }
+
+
   public signinWithGoogle(){
     this.socialService.signIn(GoogleLoginProvider.PROVIDER_ID)
     this.socialService.authState.subscribe(data=>{
