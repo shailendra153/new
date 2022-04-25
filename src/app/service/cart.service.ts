@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, toArray } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +31,14 @@ export class CartService {
   public createOrder(amount:any):Observable<any>
   {
       return this._http.post<any>(this.orderApi, {amount:amount});
+  }
+  public placeOrder(name:any,email:any,address:any,mobile:any,orderId:any,paymentId:any,data:any,total:any):Observable<any>{
+    let url ="https://artifical.herokuapp.com/order/save-order"
+    return this._http.post<any>(url,{name:name,email:email,address:address,mobile:mobile,orderId:orderId,paymentId:paymentId,products:data,total:total});
+  }
+  public deleteCart(userId:any){
+
+    let url="https://artifical.herokuapp.comcart/delete-cart"
+    return this._http.post(url,{cartId:userId});
   }
 }

@@ -52,8 +52,10 @@
                             <img class="img-fluid" src="{{Product.productImage}}" />
                         </div>
                         <ul class="action">
-                            <li>
-                                <i class="fa fa-heart" aria-hidden="true"></i>
+                            <li (click)="AddToFavorite(Product._id)">
+                                <i class="fa fa-heart" aria-hidden="true">
+                                    </i>
+
                             </li>
                         </ul>
                     </div>

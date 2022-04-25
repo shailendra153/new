@@ -1,41 +1,108 @@
-<div class="container carts">
-    <div class="cart-heading">
-        <h2>Place Order</h2>
+<div class="container">
+    <div class="title">
+        <h2>Review your order</h2>
     </div>
-    <div class="row cart" *ngFor="let item of data  index as i ">
-        <!-- <input type="hidden" name="s" value="i+1"> -->
-        <div class="col-md-3 left-cart cart_product">
-            <div class="cart_product_image">
-                <img class="img-fluid" src="{{item.productImage}}" alt="product image">
+    <div class="row">
+        <div class="col-md-9 left">
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact-address">
+                        <h3 class="address-title">Shipping Address</h3>
+                        <div class="address-form">
+                            <input [(ngModel)]="name" type="text" name="name" id="name" placeholder="name" />
+                            <input [(ngModel)]="email" type="email" name="email" id="email" placeholder="email" />
+                            <input [(ngModel)]="address" type="text" name="local-address" id="local-address" placeholder="address" />
+                            <div class="address">
+                                <input [(ngModel)]="state" type="text" name="state" id="state" placeholder="state" />
+                                <input [(ngModel)]="country" type="text" name="country" id="country" value="India" readonly placeholder="country" />
+                            </div>
+                            <input [(ngModel)]="mobile" type="text" name="mobile" id="mobile" placeholder="mobile" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 ">
+                    <div class="row order-cards">
+                        <div class="col-md-6" *ngFor="let item of data index as i">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img [src]="item.productImage" class="img-fluid rounded-start" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{item.productName}}</h5>
+                                            <p class="card-text price">₹ {{item.productPrice}}</p>
+                                            <p class="card-text">Qty <small class="text-muted"><input (change)="value($event,item.productName,i)" type="number" [max]="item.quantity" min="1" name="quantity" id="quantity" [defaultValue]="1"></small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                  <div class="col-md-4">
+                                    <img src="../../../assets/images/bracelets.png" class="img-fluid rounded-start" alt="...">
+                                  </div>
+                                  <div class="col-md-8">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Product Name</h5>
+                                      <p class="card-text price">₹ 1254</p>
+                                      <p class="card-text">Qty <small class="text-muted"><input type="number" name="quantity" id="quantity"[defaultValue]="1"></small></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                  <div class="col-md-4">
+                                    <img src="../../../assets/images/bracelets.png" class="img-fluid rounded-start" alt="...">
+                                  </div>
+                                  <div class="col-md-8">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Product Name</h5>
+                                      <p class="card-text price">₹ 1254</p>
+                                      <p class="card-text">Qty <small class="text-muted"><input type="number" name="quantity" id="quantity"[defaultValue]="1"></small></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                        </div> -->
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-md-9 right-cart cart_product">
-            <div class="cart_product_content">
-                <div class="product_name">
-                    <h3>{{item.productName}}</h3>
-                </div>
-                <div class="product_price">
-                    <h3>
-                        Price <span>₹ {{item.productPrice}}</span>
-                    </h3>
-                </div>
-                <!-- <div class="remove_btn">
-                    <a >remove</a>
-                </div> -->
-                <div class="quantity">
+        <div class="col-md-3 right">
+            <div class="order-pay ">
 
-                    <input (change)="value($event,item.productName,i)" type="number" [max]="item.quantity" value="1" defaultValue="">
+                <a (click)="onpay()" class="place-order-btn"> Place your order and pay </a>
 
+
+                <div class="order-summary">
+                    <span id="summary">
+                        Order Summary
+                        <p>
+                            Items -
+                            <span> ₹ {{total}}</span>
+                    </p>
+                    <p>
+                        Total -
+                        <span> ₹ {{total}} </span>
+                    </p>
+                    </span>
+                    <hr>
+                    <span class="order-total">
+                        <p id="total">
+                            Total -
+                            <span>₹ {{total}}</span>
+                    </p>
+                    </span>
                 </div>
-                <div class="quantity">
-                    <h2>{{item.total}}</h2>
-                </div>
+                <a (click)="onpay()" class="place-order-btn btn"> Place your order and pay </a>
+
             </div>
         </div>
-    </div>
-    <h1>Total price</h1>
-    <h1>{{total}}</h1>
-    <div class="checkout">
-        <a class="checkout_btn" (click)="onpay()">Pay Now</a>
     </div>
 </div>
