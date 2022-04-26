@@ -16,4 +16,8 @@ export class ProductService {
   public FetchSingleProduct(ProductID:String){
     return this._http.get(this.Url+ProductID);
   }
+  public productByCategory(categoryId:String){
+        let url='https://artifical.herokuapp.com/product/view-product-by-categoryId/'+categoryId;
+        return this._http.get(url);
+  }
 }

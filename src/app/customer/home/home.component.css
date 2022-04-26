@@ -98,9 +98,11 @@ text-align: center;
 
 .category-img a {
     text-decoration: none;
+    cursor: pointer;
 }
 
-.category-img a:hover .category-img a img {
+
+.category-img a:hover img {
     transition: all 0.5s ease-out;
     transform: scale(1.2);
     -webkit-transform: scale(1.2);

@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
     
   ) {
     this._category.CategoryList().subscribe((data) => {
-      this.CategoryList = data.slice(1, 6);
+      this.CategoryList = data;
     });
  
     this._product.ProductList().subscribe((data) => {
@@ -78,14 +78,6 @@ export class HomeComponent implements OnInit {
       this._router.navigate(['sign-in']);
     }
   }
-
-
-
-
-
-
-
-
 
 
   AddToCart(productId: any) {

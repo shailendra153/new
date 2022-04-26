@@ -18,9 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SingleProductComponent } from './single-product/single-product.component';
 import {SocialLoginModule,GoogleLoginProvider} from 'angularx-social-login';
 import { PlaceorderComponent } from './placeorder/placeorder.component';
-import { CategorySpecialComponent } from './category-special/category-special.component';
 import { UserProfileComponent } from './user-profile/user-profile.component'
-// import { AuthenticateService } from './Authenticate.service';
  const socialProvider={
    provide:"SocialAuthServiceConfig",
    useValue:{
@@ -49,7 +47,6 @@ import { UserProfileComponent } from './user-profile/user-profile.component'
     CustomerComponent,
     SingleProductComponent,
     PlaceorderComponent,
-    CategorySpecialComponent,
     UserProfileComponent
   ],
   imports: [

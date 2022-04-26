@@ -52,6 +52,14 @@
   font-weight: 600;
   font-size: 14px;
 }
+@media screen and (max-width:768px){
+  .form .already{
+    font-size:10px ;
+  }
+  .links .forget{
+    font-size: 10px;
+  }
+}
 .links{
   display: flex;
   justify-content: space-between;

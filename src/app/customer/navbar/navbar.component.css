@@ -1,12 +1,15 @@
 .navbar {
     width: 100vw;
-    background: var(--light);
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(15px);
+    
 }
 
 .navbar-brand {
     font-size: 24px;
     font-weight: 500;
     position: relative;
+    color: #000;
 }
 
 .navbar-brand small {
@@ -27,6 +30,7 @@
 .nav-item .nav-link {
     padding: 0;
     font-weight: 500;
+    color: #000;
 }
 
 .nav-item:hover .nav-link {
@@ -67,6 +71,15 @@
     vertical-align: middle;
 }
 
+.dropdown .name{
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 300;
+    color: #000;
+}
+.dropdown .name .fa-user-circle{
+    margin-left: 15px;
+}
 .dropdown .dropdown-menu {
     padding: 10px 20px;
 }
@@ -117,6 +130,7 @@
         right: 120px;
         top: 15px;
     }
+    
     .dropdown .dropdown-menu {
         margin-top: 18px;
         margin-right: 100px;

@@ -8,8 +8,11 @@ import { AuthenticateService } from 'src/app/service/Authenticate.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor(private _router:Router, private _authenticate:AuthenticateService) { }
+  user_data:any
+  constructor(private _router:Router, private _authenticate:AuthenticateService) { 
+    this.user_data = localStorage.getItem('user-profile');
+    this.user_data = JSON.parse(this.user_data);
+  }
 
   public isLoggedIn(): boolean {
    return this._authenticate.checkToken();
@@ -17,6 +20,9 @@ export class NavbarComponent implements OnInit {
 
   public signout(){
     localStorage.removeItem('jwt_token');
+    localStorage.removeItem('UserLoginId');
+    localStorage.removeItem('user-profile');
+    localStorage.removeItem('rzp_device_id');
     this._router.navigate(['sign-in']);
   }
   ngOnInit(): void {

@@ -14,8 +14,9 @@ import { SignupComponent } from './customer/signup/signup.component';
 import { SingleProductComponent } from './customer/single-product/single-product.component';
 import { PageNoteFoundComponent } from './page-note-found/page-note-found.component';
 import { PlaceorderComponent } from './customer/placeorder/placeorder.component';
-import { CategorySpecialComponent } from './customer/category-special/category-special.component';
 import { UserProfileComponent } from './customer/user-profile/user-profile.component';
+import { CategoryComponent } from './customer/category/category.component';
+import { AnkletsComponent } from './customer/categoryComponents/anklets/anklets.component';
  
 const routes: Routes = [
   {
@@ -31,6 +32,20 @@ const routes: Routes = [
       {
         path: "products",
         component: ProductsComponent
+      },
+      {
+        path: "category",
+        component: CategoryComponent,
+        children:[
+          {
+            path: "",
+            component:AnkletsComponent
+          },
+          {
+            path: "",
+            component:AnkletsComponent
+          }
+        ]
       },
       {
         path: "about-us",
@@ -77,10 +92,6 @@ const routes: Routes = [
         path: 'profile',
         component: UserProfileComponent,
         canActivate: [AuthGuard]
-      },
-      {
-        path:"special",
-        component:CategorySpecialComponent
       }
     ]
   },
