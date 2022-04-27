@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { CartService } from '../../service/cart.service';
 import { FavoriteService} from '../../service/favorite.service'
 import { AuthenticateService } from '../../service/Authenticate.service';
+import { NgxSpinnerService } from 'ngx-spinner';
  
 @Component({
   selector: 'app-home',
@@ -23,12 +24,17 @@ export class HomeComponent implements OnInit {
     private _router: Router,
     private _cart: CartService,
     private _authenticate: AuthenticateService,
-    private _favorite:FavoriteService
+    private _favorite:FavoriteService,
+    private spinner: NgxSpinnerService
     
-  ) {
+  ) 
+  { 
+    // this.spinner.show();
+
     this._category.CategoryList().subscribe((data) => {
       this.CategoryList = data;
     });
+    // this.spinner.hide();
  
     this._product.ProductList().subscribe((data) => {
       this.ProductList = data;

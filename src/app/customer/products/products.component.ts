@@ -124,7 +124,7 @@ export class ProductsComponent implements OnInit {
     this._product.FetchSingleProduct(Id).subscribe(data => {
       console.log(data);
       this._update_data.setData(data);
-      this._router.navigate(['signle-product'])
+      this._router.navigate(['single-product'])
     })
   }
   ngOnInit(): void {

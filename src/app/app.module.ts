@@ -8,6 +8,8 @@ import { CustomerModule } from './customer/customer.module';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthenticateService } from './service/Authenticate.service';
 import { TokenIntercepterService } from './service/token-intercepter.service';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNoteFoundComponent } from './page-note-found/page-note-found.component';
 import { DeleteComponent } from './customer/UserComponent/delete/delete.component';
 import { ProfileComponent } from './customer/UserComponent/profile/profile.component';
@@ -67,6 +69,8 @@ import { CategoryComponent } from './customer/category/category.component';
     CustomerModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    NgxSpinnerModule,
     ToastrModule.forRoot(  { timeOut: 10000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true}),
