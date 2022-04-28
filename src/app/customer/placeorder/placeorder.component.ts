@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/service/cart.service';
 import { UpdateDataService } from '../../service/update-data.service';
@@ -20,7 +20,7 @@ export class PlaceorderComponent implements OnInit {
   state: any = "";
   country: any = "India";
   mobile: any = "";
-  constructor(private _cart: CartService, private router: Router, private _toastr:ToastrService) {
+  constructor(private _cart: CartService, private router: Router, private _toastr:ToastrService,private activateRoute:ActivatedRoute) {
   }
 
   amount: any;
@@ -30,41 +30,34 @@ export class PlaceorderComponent implements OnInit {
     this._cart.createOrder(this.total).subscribe(data => {
       console.log(data);
       var options = {
-        "key": "rzp_test_gdzLmWFRzOIDAm",// Enter the Key ID generated from the Dashboardr
-        "amount": "1000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        "key": "rzp_test_gdzLmWFRzOIDAm",
+        "amount": "1000", 
         "currency": "INR",
         "name": "Acme Corp",
         "description": "Test Transaction",
         "image": "https://example.com/your_logo",
-        "order_id": data.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-        //   "handler": function (response: { razorpay_payment_id: any; razorpay_order_id: any; razorpay_signature: any;}){
-        //     // console.log(response.razorpay_payment_id);
-        //     // console.log(response.razorpay_order_id);
-        //     // console.log(response.razorpay_signature)
-        //      fd.append("orderId",response.razorpay_order_id);
-        //     fd.append("paymentId",response.razorpay_payment_id);
-        //     console.log(fd);
-        //     this.test();
-
-
-
-        // },
+        "order_id": data.id, 
         'handler': (response: any) => {
           alert("payment Success")
 
-            // showSuccess(){
-            //   this._toastr.success('payment Success','something')
-            // }
-          // showSuccess() {
-          //   this._toastr.success('Hello world!', 'Toastr fun!');
-          // }
+            
 
-          // this._cart.placeOrder(this.name, this.email, this.address, this.mobile, response.razorpay_order_id, response.razorpay_payment_id, this.data, this.total).subscribe(data => {
-          //   this._cart.deleteCart(this.cartId).subscribe(data => {
-          //     this.router.navigate(["home"]);
+          this._cart.placeOrder(this.name, this.email, this.address, this.mobile, response.razorpay_order_id, response.razorpay_payment_id, this.data, this.total).subscribe(data => {
+             this._cart.deleteCart(this.cartId).subscribe(data => {
+              console.log("order placed");
+              this.router.navigate(['home'])
 
-          //   })
-          // });
+            
+              this.router.events.subscribe(event=>{
+                if(event instanceof NavigationEnd){
+                
+                  window.location.reload();
+                  
+                }
+              });
+
+             })
+          });
         },
 
         "prefill": {
@@ -109,8 +102,6 @@ export class PlaceorderComponent implements OnInit {
 
     })
 
-
-
   }
 
   value(e: any, name: string, index: number) {
@@ -122,13 +113,9 @@ export class PlaceorderComponent implements OnInit {
 
 
   }
-  test() {
-    console.log("called test.........")
-  }
+  
 }
 
 
-function showSuccess() {
-  throw new Error('Function not implemented.');
-}
+
 

@@ -26,7 +26,8 @@ export class CartService {
   public removeProduct(ProductId:any,userId:any){
     return this._http.post(this.RemoveProductUrl,{productId:ProductId,cartId:userId});
   }
-  orderApi  = "https://artifical.herokuapp.com/order"
+ // orderApi  = "https://artifical.herokuapp.com/order"
+ orderApi  = "https://artifical.herokuapp.com/order"
 
   public createOrder(amount:any):Observable<any>
   {
@@ -38,7 +39,7 @@ export class CartService {
   }
   public deleteCart(userId:any){
 
-    let url="https://artifical.herokuapp.comcart/delete-cart"
+    let url="https://artifical.herokuapp.com/cart/delete-cart"
     return this._http.post(url,{cartId:userId});
   }
 }
